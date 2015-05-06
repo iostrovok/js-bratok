@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default navbar-lower" role="navigation" ng-show="tabContr.isTopTab('scripts')">
+    <div class="container">
+        <div class="collapse navbar-collapse collapse-buttons">
+            <form class="navbar-form navbar-left" role="search">
+                <button class="btn btn-success" ng-click="tabContr.setNextTab('scriptList')">List</button>
+                <button class="btn btn-default" ng-click="tabContr.setNextTab('scriptEdit')">Add</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div ng-include="'include/scripts_list.html'" ng-show="tab.isSet(11)"></div>
+<div ng-include="'include/add_script.html'" ng-show="tab.isSet(12)"></div>

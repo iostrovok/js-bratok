@@ -1,0 +1,1 @@
+!function(){var o=angular.module("script-log",[]);o.controller("ScriptLogCtrl",["$scope","$http","$location","$filter",function(o,t,l,r){console.log("ScriptLogCtrl!"),getList()}])}();

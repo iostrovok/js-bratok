@@ -1,0 +1,174 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row" ng-repeat="script in myScripts">
+            <div class="col-xs-2">
+                <b>{{script.id}}</b>
+            </div>
+            <div class="col-xs-10">
+                <div class="row" ng-repeat="time in script.times">
+                    <div class="col-xs-1">{{time}}
+                    </div>
+                    <div class="col-xs-10">{{script.exe}}
+                        <span ng-repeat="param in script.params">&nbsp;{{param}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<ul ng-repeat="script in myScripts">
+    <li>
+        <b>{{script.id}}</b>
+        <ul ng-show="script.times.length">
+            <li ng-repeat="time in script.times">
+                <b><ins>
+                    <nobr>{{time}} {{script.exe}}
+                        
+                    </nobr>
+                </ins></b>
+            </li>
+        </ul>
+        <ul ng-show="!script.times.length">
+            <li>
+                <b><ins>
+                    <nobr>[empty] {{script.exe}}
+                        <span ng-repeat="param in script.params">&nbsp;{{param}}</span>
+                    </nobr>
+                </ins></b>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row" ng-repeat="script in myScripts">
+            <div class="col-xs-12">
+                <h4>{{script.id}}</h4>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="{{script.id}}-exe" class="col-sm-2 control-label">EXE</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="{{script.id}}-exe" placeholder="Script ID" value="{{script.exe}}">
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label for="{{script.id}}-times">TIMES</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" ng-repeat="time in script.times">
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="*/1" value="{{time}}" name="times" id="{{script.id}}-times" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="btn-toolbar" role="toolbar">
+                                        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label for="{{script.id}}-params">PARAMS</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row" ng-repeat="param in script.params">
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="*/1" value="{{param}}" name="params" id="{{script.id}}-params" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="btn-toolbar" role="toolbar">
+                                        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <hr />
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<ul ng-repeat="script in myScripts">
+    <li>
+        <ul>
+            <li>
+                id: {{script.id}}
+            </li>
+            <li>
+                times: {{script.times}}
+            </li>
+            <li>
+                last_time: {{script.last_time | date:'yyyy-MM-dd hh:mm:ss'}}
+            </li>
+            <li>
+                last_finish: {{script.last_finish | date:'yyyy-MM-dd hh:mm:ss'}}
+            </li>
+            <li>
+                is_work: {{script.is_work}}
+            </li>
+            <li>
+                exe: {{script.exe}}
+            </li>
+            <li>
+                next_start: {{script.next_start | date:'yyyy-MM-dd hh:mm:ss'}}
+            </li>
+            <li>
+                env: {{script.env}}
+            </li>
+            <li>
+                params:
+                <ul ng-repeat="param in script.params">
+                    <li>
+                        {{param}}
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

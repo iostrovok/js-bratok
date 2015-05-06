@@ -1,0 +1,98 @@
+<form name="reviewForm">
+    <h4>Creating new script 2</h4>
+    <h4 ng-show="errorMes">{{errorMes}}</h4>
+    <div class="row" ng-show="myScript">
+        <div class="col-xs-4">
+            <h1>scriptID: {{scriptID}}</h1>
+            <h1>scriptID: {{myScript.id}}</h1>
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" placeholder="ID scripts" value="{{myScript.id}}" name="id">
+            </div>
+
+            <div class="form-group">
+                <label for="exe">EXE command</label>
+                <input type="text" class="form-control" id="exe" placeholder="exe" value="{{myScript.exe}}" name="exe">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-default" type="button" value="Save" ng-click="saveScriptData()" />
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-group">
+
+            </div>
+
+            <div class="form-group">
+                <label for="times">Times</label>
+
+                <button class="btn btn-default btn-xs" ng-click="addScriptListParam('times')">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                <input type="text" class="form-control" id="times" placeholder="times" ng-model="times">
+
+                <div class="anchor" ng-repeat="t in myScript.times">
+                    <button class="btn btn-default btn-xs" ng-click="upScriptListParam
+('times', e)">
+                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="downScriptListParam
+('times', e)">
+                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="deleteScriptListParam('times', t)">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                    {{t}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="params">Params</label>
+                <p>
+                    <b>{{paramsToLine}}</b>
+                </p>
+                <button class="btn btn-default btn-xs" ng-click="addScriptListParam('params')">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                <input type="text" class="form-control" id="params" placeholder="params scripts" ng-model="params">
+
+                <div class="anchor" ng-repeat="p in myScript.params">
+                    <button class="btn btn-default btn-xs" ng-click="upScriptListParam
+('params', p)">
+                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="downScriptListParam
+('params', p)">
+                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="deleteScriptListParam('params', p)">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                    {{p}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="env">ENV</label>
+                <button class="btn btn-default btn-xs" ng-click="addScriptListParam('env')">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                <input type="text" class="form-control" id="env" placeholder="env scripts" ng-model="env">
+                <div class="anchor" ng-repeat="e in myScript.env">
+                    <button class="btn btn-default btn-xs" ng-click="upScriptListParam
+('env', e)">
+                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="downScriptListParam
+('env', e)">
+                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-default btn-xs" ng-click="deleteScriptListParam
+('env', e)">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                    {{e}}
+                </div>
+
+            </div>

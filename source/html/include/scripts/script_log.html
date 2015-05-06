@@ -1,0 +1,57 @@
+
+    <h4 ng-show="errorMes">{{errorMes}}</h4>
+    <div class="row" ng-show="myScript">
+        <div class="col-xs-12">
+            <div class="row">
+                <h1>scriptID: {{scriptID}}</h1>
+            </div>
+            <div class="row" ng-repeat="log in logList">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            "task_id": {{ log.task_id }}
+                        </div>
+                        <div class="col-xs-4">
+                            "start": {{ log.start | date : 'yyyy-MM-dd hh:mm:ss' }}
+                        </div>
+                        <div class="col-xs-4">
+                            "finish": {{ log.finish | date : 'yyyy-MM-dd hh:mm:ss' }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row" ng-show="log.result">
+                                <div class="col-xs-1">
+                                    "result":
+                                </div>
+                                <div class="col-xs-11">
+                                    "{{log.result}}
+                                </div>
+                            </div>
+                            <div class="row" ng-show="log.error">
+                                <div class="col-xs-1">
+                                    "errorLog":
+                                </div>
+                                <div class="col-xs-11">
+                                    <pre>{{log.error}}</pre>
+                                </div>
+                            </div>
+                            <div class="row" ng-show="log.stdout">
+                                <div class="col-xs-1">
+                                    "stdout":
+                                </div>
+                                <div class="col-xs-11">
+                                    <pre>{{log.stdout}}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,1 @@
+!function(){function t(t,n,o){return t({method:"POST",url:n,data:o,headers:{"Content-Type":"application/x-www-form-urlencoded"}})}var n=angular.module("http-post",[]);n.controller("httpPost",["$scope","$location",function(t,n){}]),n.factory("sendPost",["$http",function(n){var o=n,r={post:function(n,r){return t(o,n,r)}};return r}])}();

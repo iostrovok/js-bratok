@@ -1,0 +1,1 @@
+!function(){var t=angular.module("add-server",["top-menu"]);t.controller("ServersAddCtrl",["$scope",function(t){this.topTab="",this.nextTab="",this.editScriptID="",t.addScriptCtrl=this,this.iTest=function(t){console.log("EditScript! Test! - "+t)}}])}();

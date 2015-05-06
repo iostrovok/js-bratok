@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("BratokServices",[]).factory("BratokHttp",["$http",function(t){return{get:t.get,"delete":t["delete"],head:t.head,jsonp:t.jsonp,post:t.post,put:t.put,pendingRequests:t.pendingRequests}}])}();

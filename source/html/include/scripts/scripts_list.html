@@ -1,0 +1,43 @@
+<div class="row" ng-controller="ScriptsListCtrl as SLC">
+    <div class="col-xs-12">
+        <div class="row" ng-repeat="script in myScripts">
+            <div class="col-xs-3">
+                <button class="btn btn-danger btn-xs" ng-click="startRunScript(script.id)">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                </button>       
+                <button class="btn btn-primary btn-xs" ng-click="viewEditScript(script.id)">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-success btn-xs" ng-click="viewLogScript(script.id)">
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                </button>
+                <b>{{script.id}}</b>
+            </div>
+            <div class="col-xs-9">
+                <div class="row" ng-repeat="time in script.times">
+                    <div class="col-xs-1">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-2">
+                        {{time}}
+                    </div>
+                    <div class="col-xs-9">
+                        {{script.exe}}
+                        <span ng-repeat="param in script.params">&nbsp;{{param}}</span>
+                    </div>
+                </div>
+                <div class="row" ng-show="!script.times.length">
+                    <div class="col-xs-1">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-2">
+                    </div>
+                    <div class="col-xs-9">
+                        {{script.exe}}
+                        <span ng-repeat="param in script.params">&nbsp;{{param}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

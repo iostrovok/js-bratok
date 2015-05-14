@@ -11,9 +11,14 @@
             getList();
 
             function getList() {
+
+                console.log("getList!!!!!");
+
                 setMyLoc.set('servers', 'servers');
                 $http.get('/api/server_list').success(function(data) {
                     $scope.myServers = [];
+                    console.log("getList.data = "+ data);
+
                     if (data.error === "") {
                         $scope.myServers = data.data.list;
                     }
@@ -21,17 +26,10 @@
                 });
             }
 
-            function viewEditServer(scriptID) {
-                console.log("viewEditScript. scriptID: " + scriptID);
-                // setMyLoc.set('servers', 'servers');
-                // $http.get('/api/server_list').success(function(data) {
-                //     $scope.myServers = [];
-                //     if (data.error === "") {
-                //         $scope.myServers = data.data.list;
-                //     }
-                //     $scope.errorMes = data.error;
-                // });
-            }
+            $scope.viewEditServer = function(serverID) {
+                setMyLoc.set('servers', 'servers');
+                $location.path("/servers/edit/" + serverID);
+            };
         }
     ]);
 })();

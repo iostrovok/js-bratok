@@ -5,7 +5,7 @@
     var app = angular.module('bratok', [
         'scripts-list', 'script-log', 'add-script', 'servers-list', 'add-server',
         'top-menu',
-        'ngRoute', 'ngAnimate'
+        'ngRoute', 'ngAnimate', 'ui.bootstrap'
     ]);
 
 

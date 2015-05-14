@@ -1,1 +1,44 @@
-<h1>SERVERS_LIST-HTML</h1>
+<div class="row" ng-controller="ServersListCtrl as SLC">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-3">
+                <b>ID</b>
+            </div>
+            <div class="col-xs-2">
+               <b>Is master</b>
+            </div>
+            <div class="col-xs-2">
+               <b>host:port</b>
+            </div>
+            <div class="col-xs-2">
+               <b>ip:port</b>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="row" ng-repeat="server in myServers">
+            <div class="col-xs-3">
+                <button class="btn btn-danger btn-xs" ng-click="startRunScript(server.id)">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                </button>       
+                <button class="btn btn-primary btn-xs" ng-click="viewEditServer(server.id)">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-success btn-xs" ng-click="viewLogScript(server.id)">
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                </button>
+                <b>{{server.id}}</b>
+            </div>
+            <div class="col-xs-2">
+               <b>{{server.is_master}}</b>
+            </div>
+            <div class="col-xs-2">
+               <b ng-show="server.host">{{server.host}}:{{server.port}}</b>
+            </div>
+            <div class="col-xs-2">
+               <b ng-show="server.ip">{{server.ip}}:{{server.port}}</b>
+            </div>
+        </div>
+    </div>
+</div>
+

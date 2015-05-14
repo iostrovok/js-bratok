@@ -1,1 +1,87 @@
-<h1>ADD_SERVER-HTML</h1>
+<form name="reviewForm">
+    <h4 ng-show="myServer.id">Edit server "{{myServer.id}}"</h4>
+    <h4 ng-show="! myServer.id">Creating new server</h4>
+    <h4 ng-show="errorMes">{{errorMes}}</h4>
+    <div class="row" ng-show="myServer">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" placeholder="ID servers" value="{{myServer.id}}" name="id">
+            </div>
+
+            <div class="form-group">
+                <label for="ip">IP</label>
+                <input type="text" class="form-control" id="ip" placeholder="ip" value="{{myServer.ip}}" name="ip">
+            </div>
+
+            <div class="form-group">
+                <label for="host">HOST</label>
+                <input type="text" class="form-control" id="host" placeholder="host" value="{{myServer.host}}" name="host">
+            </div>
+
+            <div class="form-group">
+                <label for="port">PORT</label>
+                <input type="text" class="form-control" id="port" placeholder="port" value="{{myServer.port}}" name="port">
+            </div>
+
+			<div class="row" class="form-group">
+        		<div class="col-xs-3">
+	                <label for="is_master">is_master</label>
+    	        </div>
+        		<div class="col-xs-1">
+    	            <input type="checkbox" class="form-control" id="is_master" placeholder="is_master" ng-model="myServer.is_master" name="is_master">
+				</div>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-default" type="button" value="Save" ng-click="saveServerData()" />
+            </div>
+        </div>
+        <div class="col-xs-6">
+
+            <div class="form-group">
+                <div  class="row" class="anchor">
+        			<div class="col-xs-1">
+                        <button class="btn btn-default btn-xs" ng-click="openAddScript()">
+		                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		                </button>
+                    </div>
+        			<div class="col-xs-10">
+    	                <label for="scripts">Scripts:</label>
+   	            	</div>
+                </div>
+
+                <div  class="row" class="anchor" ng-repeat="script in myServer.scripts">
+        			<div class="col-xs-1">
+	                    <button class="btn btn-default btn-xs" ng-click="deleteServerListScript('scripts', p)">
+                        	<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    	</button>
+                    </div>
+        			<div class="col-xs-10">
+    	                {{script}}
+   	            	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div ng-controller="ServersAddCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Check Scripts</h3
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="script in scriptsList">
+                    <input type="checkbox" id="is_master_{{ script.id }}" ng-model="script.selected">
+                    <label for="is_master_{{ script.id }}">{{ script.id }} - {{script.selected}}</label>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
